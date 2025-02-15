@@ -1,14 +1,15 @@
-const API_KEY = process.env.API_KEY
 import Results from '@/components/Results';
 
-
 export default async function Home({searchParams}) {
-  // const genre = searchParams?.genre || 'fetchTrending';
+  const genre = searchParams?.genre || 'fetchTrending';
     let results;
 
     try {
         const res = await fetch(
-            `https://cinemaguide.skillbox.cc/movie`,
+            `https://cinemaguide.skillbox.cc/movie${
+              genre === 'fetchTopRated' ? `/top10` : ``
+            }`,
+            { next: { revalidate: 10000 } },
             {
                 headers: {
                     'Content-Type': 'application/json',
