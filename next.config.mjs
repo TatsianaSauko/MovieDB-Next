@@ -1,4 +1,14 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+    images: {
+        remotePatterns: [
+          {
+            protocol: 'https',
+            hostname: 'cinemaguide.skillbox.cc',
+            pathname: '**',
+          },
+        ],
+      },
+};
 
 export default nextConfig;
