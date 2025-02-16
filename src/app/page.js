@@ -22,7 +22,6 @@ export default async function Home({ searchParams }) {
     }
 
     results = await res.json();
-    console.log(results);
   } catch (error) {
     console.error('Error fetching data:', error);
     results = { error: 'Failed to fetch data' };
