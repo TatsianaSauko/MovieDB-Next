@@ -1,13 +1,9 @@
 import Image from 'next/image';
 
 export default async function MoviePage({ params }) {
-  if (!params || !params.id) {
-    throw new Error("Movie ID is missing");
-  }
-
-  const movieId = params.id;
-
-  const res = await fetch(`https://cinemaguide.skillbox.cc/movie/${movieId}`);
+  const { id } = await params
+  
+  const res = await fetch(`https://cinemaguide.skillbox.cc/movie/${id}`);
 
   if (!res.ok) {
     throw new Error("Network response was not ok");

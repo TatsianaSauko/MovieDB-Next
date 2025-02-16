@@ -1,7 +1,11 @@
 import Results from '@/components/Results';
 
 export default async function Home({ searchParams }) {
-  const genre = searchParams?.genre || 'fetchTrending';
+  let { genre } = await searchParams;
+  if (!genre) {
+    genre = 'fetchTrending';
+  }
+  
   let results;
 
   try {

@@ -6,7 +6,7 @@ export default function Card({ result }) {
   const imageUrl = result.posterUrl || result.backdropUrl || null;
   return (
     <div className='group cursor-pointer sm:hover:shadow-slate-400 sm:shadow-md rounded-lg sm:border sm:border-slate-400 sm:m-2 transition-shadow duration-200'>
-      <Link href={`/movie/${result.id}`}>
+      <Link rel="preload" href={`/movie/${result.id}`}>
       {imageUrl &&<Image
           src={imageUrl}
           alt={`${result.title} poster`}
